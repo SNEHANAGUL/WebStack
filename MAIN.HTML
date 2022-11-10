@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="l2.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="l2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .icon {
+            width: 200px;
+            height: auto;
+            float: left;
+        }
+        .title{
+            text-align: center;
+            padding-top: 1.7em;
+        }
+        .Header{
+            height: 150px;
+            position:sticky;
+            top:0;
+            background-color: white;
+        }
+    </style>
 </head>
+
 <body>
     <div class="Header">
-		<br><center><h1><strong>NATIONAL CADET CORPS</strong></h1></center>
-	</div>
-	<form action="/action_page.php">
-		<input type="image" src="logo.gif" alt="submit"
-width="180" height="150">	</form>
-
-<div class="navbar">
-  <a href="#home">HOME</a>
-  <div class="dropdown">
-    <button class="dropbtn">ABOUT NCC
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="aboutncc.html">AIM OF NCC</a>
-      <a href="nccsong.html">NCC SONG</a>
+        <img src="logo.gif" alt="" class="icon">
+        <h1 class="title"><strong>NATIONAL CADET CORPS</strong></h1>
     </div>
-  </div> 
-    <a href="enrollment.html">ENROLLMENT</a>
-    <a href="g.html">GALLERY</a>
+    <!-- <form action="/action_page.php">
+        <input type="image" src="logo.gif" alt="submit" width="180" height="150">
+    </form> -->
 
-  
+    <div class="navbar">
+        <a href="#home">HOME</a>
+        <div class="dropdown">
+            <button class="dropbtn">ABOUT NCC
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="aboutncc.html">AIM OF NCC</a>
+                <a href="nccsong.html">NCC SONG</a>
+            </div>
+        </div>
+        <a href="enrollment.html">ENROLLMENT</a>
+        <a href="g.html">GALLERY</a>
 
 
-<img src="ncc.jpg" alt="Girl in a jacket" style="width:1520px;height:600px;"><br><br><br>
-<center><button onclick="getLocation()">KNOW YOUR LOCATION</button></center>
 
-<p id="demo"></p>
 
-<script>
-const x = document.getElementById("demo");
+        <img src="ncc.jpg" alt="Girl in a jacket" style="width:1520px;height:600px;"><br><br><br>
+        <center><button onclick="getLocation()">KNOW YOUR LOCATION</button></center>
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+        <p id="demo"></p>
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
-</script>
-  
- 
-</style>
+        <script>
+            const x = document.getElementById("demo");
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+
+
+        </style>
+
 </html>
