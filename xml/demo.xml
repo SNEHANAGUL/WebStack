@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="lab3.xsl"?>
+<NCC>
+   <cadets>
+      <reg_no>TS16SWA108701</reg_no>
+      <name>
+         ABISHIKTHA
+        
+      </name>
+      <collegename>St.FRANICS COLLEGE</collegename>
+      <bt_name>1T GIRLS BN NCC</bt_name>
+      <wing>ARMY</wing>
+      <certificates>A</certificates>
+   </cadets>
+   
+   <cadets>
+      <reg_no>TS16SWA108702</reg_no>
+      <name>
+        ANJALI
+         
+      </name>
+      <collegename>St.FRANCIS COLLEGE</collegename>
+      <bt_name>1T GIRLS BN NCC</bt_name>
+      <wing>ARMY</wing>
+      <certificates>A,B</certificates>
+      </cadets>
+      <cadets>
+      <reg_no>TS16SWA108703</reg_no>
+      <name>
+         BHAVANA
+         
+      </name>
+      <collegename>St.FRANICS COLLEGE</collegename>
+      <bt_name>IT GIRLS BN NCC</bt_name>
+      <wing>ARMY</wing>
+      <certificates>A</certificates>
+   </cadets>
+   <cadets>
+      <reg_no>TS16SWA108704</reg_no>
+      <name>
+         DIVYA
+       
+      </name>
+      <collegename>St.FRANICS COLLEGE</collegename>
+      <bt_name>IT GIRLS BN NCC</bt_name>
+      <wing>AIR</wing>
+      <certificates>-</certificates>
+   </cadets>
+   <cadets>
+      <reg_no>TS16SWA108705</reg_no>
+      <name>
+         HARSHITHA
+         
+      </name>
+      <collegename>MARYS</collegename>
+      <bt_name>2T AIR SQ NCC</bt_name>
+      <wing>AIR</wing>
+      <certificates>A,B,C</certificates>
+   </cadets>
+   <cadets>
+      <reg_no>TS16SWA108706</reg_no>
+      <name>
+        KANAK
+         
+      </name>
+      <collegename>BHAVANS</collegename>
+      <bt_name>2T AIR SQ NCC</bt_name>
+      <wing>AIR</wing>
+      <certificates>NA</certificates>
+   </cadets>
+   <cadets>
+      <reg_no>TS16SWA108707</reg_no>
+      <name>
+        SARAH
+         
+      </name>
+      <collegename>KASTHURIBA GANDHI</collegename>
+      <bt_name>1T GN BN NCC</bt_name>
+      <wing>ARMY</wing>
+      <certificates>B</certificates>
+   </cadets>
+   <cadets>
+      <reg_no>TS16SWA108708</reg_no>
+      <name>
+        SNEHA
+         
+      </name>
+      <collegename>St.FRANCIS DEGREE COLLEGE</collegename>
+      <bt_name>3T BN NCC</bt_name>
+      <wing>ARMY</wing>
+      <certificates>B,C</certificates>
+   </cadets>
+</NCC>

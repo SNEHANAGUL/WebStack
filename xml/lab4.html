@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<title>NCC DATA SHEET</title>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+            border-collapse: collapse;
+            text-decoration: double;
+
+
+        }
+
+        th,
+        td {
+            padding: 5px;
+            background-color: rgb(103, 162, 225);
+            text-align: center;
+
+        }
+
+        body {
+            background-color: rgb(48, 51, 53);
+        }
+    </style>
+    <title>Lab4</title>
+</head>
+
+<body>
+    <h1>CADET DETAILS</h1>
+    <table id="demo1"></table>
+    <table id="demo2"></table>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+        };
+        xhttp.open("GET", "demo.xml", true);
+        xhttp.send();
+
+        function myFunction(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table = "<tr><th>REGIMENTAL NUMBER</th><th>NAME</th><th>COLLEGE NAME</th><th>BATTALION</th><th>WING</th><th>CERTIFICATES</th></tr>";
+            var x = xmlDoc.getElementsByTagName("cadets");
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("reg_no")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("collegename")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("bt_name")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("wing")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("certificates")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("demo2").innerHTML = table;
+
+            aq
+        }
+    </script>
+
+</body>
+
+</html>
