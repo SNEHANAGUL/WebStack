@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ALUMNI LOGIN </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+    <div class="container">
+        <div class="form">
+            <a href="settings.html" id="settings">Settings</a>
+            <p class="text-center" style="font-size: 2em; font-weight:600">ALUMNI LOGIN</p>
+            <form autocomplete="off" onsubmit="return false">
+                <div class="mt">
+                    <label for="name">First Name <span class="imp">*</span></label> <br>
+                    <input type="text" name="name" id="fname" minlength="2" onpaste="return false" autofocus required>
+                    <br>
+                    <span class="helper" id="fname-helper"></span> <br>
+                </div>
+
+                <div class="mt">
+                    <label for="name">Last Name <span class="imp">*</span></label> <br>
+                    <input type="text" name="name" id="lname" minlength="3" onpaste="return false" required> <br>
+                    <span class="helper" id="lname-helper"></span> <br>
+                </div>
+
+                <div class="mt">
+                    <label for="phone">Phone <span class="imp">*</span></label> <br>
+                    <input type="tel" name="phone" id="phone" maxlength="10" minlength="10" onpaste="return false"
+                        required><br>
+                    <span class="helper" id="phone-helper"></span> <br>
+                </div>
+
+
+
+                <div class="mt">
+                    <label for="email">Email <span class="imp">*</span></label> <br>
+                    <input type="email" name="email" id="email" onpaste="return false" required><br>
+                    <span class="helper" id="email-helper"></span> <br>
+                </div>
+
+                <div class="mt">
+                    <label for="password">Password <span class="imp">*</span></label> <br>
+                    <input type="password" name="password" id="password" onpaste="return false" required minlength="8">
+                    <br>
+                    <div class="show"><input type="checkbox" name="show" id="check" class="check"><small> Show
+                            Password</small></div>
+                    <span class="helper" id="password-helper"></span> <br>
+                </div>
+
+                <div class="mt">
+                    <label for="password">Confirm Password <span class="imp">*</span></label> <br>
+                    <input type="password" name="cnf-password" id="cnf-password" onpaste="return false" required
+                        minlength="8"> <br>
+                    <div class="show">
+                        <input type="checkbox" name="show" id="cnf-check" class="check"><small> Show Password</small>
+                    </div>
+                    <span class="helper" id="cnf-password-helper"></span> <br>
+                </div>
+
+                <input type="submit" value="Submit" class="mt" onclick="submitForm()">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var fName = document.getElementById('fname');
+        var lName = document.getElementById('lname');
+        var email = document.getElementById('email');
+        var phone = document.getElementById('phone');
+        var password = document.getElementById('password');
+        var cnfPassword = document.getElementById('cnf-password');
+
+        var fNameHelp = document.getElementById('fname-helper');
+        var lNameHelp = document.getElementById('lname-helper');
+        var emailHelp = document.getElementById('email-helper');
+        var phoneHelp = document.getElementById('phone-helper');
+        var passwordHelp = document.getElementById('password-helper');
+        var cnfPasswordHelp = document.getElementById('cnf-password-helper');
+        var check = document.getElementById('check')
+        var cnfCheck = document.getElementById('cnf-check')
+
+        var fNameSatisfied = false
+        var lNameSatisfied = false
+        var phoneSatisfied = false
+        var emailSatisfied = false
+        var passSatisfied = false
+        var cnfPassSatisfied = false
+
+        fName.oninput = function () {
+            var spl = /[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+            var letters = /[0-9]/g
+            if (fName.value.match(letters) || fName.value.match(/\s/g) || fName.value.match(spl)) {
+                nameLen = fName.value.length
+                fName.value = fName.value.slice(0, nameLen - 1)
+            }
+
+            var msg = ""
+            if (fName.value.length < 2)
+                msg += "Minimum 2 characters"
+            fNameHelp.innerHTML = msg
+
+            if (fName.value.length >= 2) {
+                fName.style.outlineColor = "var(--success)"
+                fName.style.border = "1px solid var(--success)"
+                fNameSatisfied = true
+                return
+            }
+            fName.style.outlineColor = "var(--danger)"
+            fName.style.border = "1px solid var(--danger)"
+        }
+
+        lName.oninput = function () {
+            var spl = /[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+            var letters = /[0-9]/g
+            if (lName.value.match(letters) || lName.value.match(/\s/g) || lName.value.match(spl)) {
+                nameLen = lName.value.length
+                lName.value = lName.value.slice(0, nameLen - 1)
+            }
+
+            var msg = ""
+            if (lName.value.length < 3)
+                msg += "Minimum 3 characters"
+            lNameHelp.innerHTML = msg
+
+            if (lName.value.length >= 3) {
+                lName.style.outlineColor = "var(--success)"
+                lName.style.border = "1px solid var(--success)"
+                lNameSatisfied = true
+                return
+            }
+            lName.style.outlineColor = "var(--danger)"
+            lName.style.border = "1px solid var(--danger)"
+        }
+
+        phone.oninput = function () {
+            var num = /[a-z]/i
+            var spl = /[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+            if (phone.value.match(num) || phone.value.match(/\s/g) || phone.value.match(spl)) {
+                nameLen = phone.value.length
+                phone.value = phone.value.slice(0, nameLen - 1)
+            }
+
+            var msg = ""
+            if (phone.value.length < 10)
+                msg += "Must have 10 digits"
+            phoneHelp.innerHTML = msg
+
+            if (phone.value.length == 10) {
+                phone.style.outlineColor = "var(--success)"
+                phone.style.border = "1px solid var(--success)"
+                phoneSatisfied = true
+                return
+            }
+            phone.style.outlineColor = "var(--danger)"
+            phone.style.border = "1px solid var(--danger)"
+        }
+
+        email.oninput = function () {
+            var spl = /[!#$%^&*()~`\_\-\+\={}\[\]|\\;:'",/<>?]/g
+            if (email.value.match(spl)) {
+                emailLen = email.value.length
+                email.value = email.value.slice(0, emailLen - 1)
+            }
+            email.value = email.value.trim()
+            // var emailPattern = /^[a-z]+([0-9]?[a-z]+)+([\.-]?[a-z]+)*@[a-z]+([\.-]?[a-z]+)*(\.[a-z]{2,3})+$/
+            var emailPattern = /^(\b[a-z]+)+([a-z0-9]+)+([\.-]?[a-z0-9])*@[a-z]+([\.-]?[a-z]+)*(\.[a-z]{2,3})+$/
+            var msg = ""
+
+            if (!email.value.match(emailPattern))
+                msg = "Invalid email"
+
+            emailHelp.innerText = msg
+
+            if (email.value.match(emailPattern)) {
+                email.style.outlineColor = "var(--success)"
+                email.style.border = "1px solid var(--success)"
+                emailSatisfied = true
+                return
+            }
+
+            email.style.outlineColor = "var(--danger)"
+            email.style.border = "1px solid var(--danger)"
+        }
+
+        password.oninput = function () {
+            passSatisfied = false
+            var lowercase = /[a-z]/g
+            var uppercase = /[A-Z]/g
+            var num = /[0-9]/g
+            var spl = /[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+
+            var msg = ""
+
+            if (!password.value.match(num))
+                msg += "Add a minimum of 1 numeric character [0-9] <br/>"
+
+            if (!password.value.match(uppercase))
+                msg += "Add a minimum of 1 upper case letter [A-Z] <br/>"
+
+            if (!password.value.match(lowercase))
+                msg += "Add a minimum of 1 lower case letter [a-z] <br/>"
+
+            if (!password.value.match(spl))
+                msg += "Add 1 special character: ~`!@#$%^&*()-_+={}[]|;:\"<>,./? <br/>"
+
+            if (password.value.length < 8)
+                msg += "Minimum 8 characters <br/>"
+
+            passwordHelp.innerHTML = msg
+
+            if (password.value.match(num) && password.value.match(uppercase) && password.value.match(lowercase) && password.value.match(spl) && password.value.length >= 8) {
+                password.style.outlineColor = "var(--success)"
+                password.style.border = "1px solid var(--success)"
+                passSatisfied = true
+                return
+            }
+            password.style.outlineColor = "var(--danger)"
+            password.style.border = "1px solid var(--danger)"
+        }
+
+        check.onchange = function show() {
+
+            if (check.checked) {
+                password.type = "text"
+                return
+            }
+            password.type = "password"
+        }
+
+        cnfCheck.onchange = function show() {
+
+            if (cnfCheck.checked) {
+                cnfPassword.type = "text"
+                return
+            }
+            cnfPassword.type = "password"
+        }
+
+        cnfPassword.oninput = function () {
+            var msg = ""
+
+            if (password.value == '')
+                msg += "Password cannot be empty<br/>"
+
+            if (!passSatisfied)
+                msg += "Please follow all condition in password<br/>"
+            if (cnfPassword.value !== password.value)
+                msg += "Password does not match<br/>"
+            cnfPasswordHelp.innerHTML = msg
+
+            if (cnfPassword.value === password.value && passSatisfied && password.value != '') {
+                cnfPassword.style.outlineColor = "var(--success)"
+                cnfPassword.style.border = "1px solid var(--success)"
+                cnfPassSatisfied = true
+                return
+            }
+
+            cnfPassword.style.outlineColor = "var(--danger)"
+            cnfPassword.style.border = "1px solid var(--danger)"
+        }
+
+        function submitForm() {
+            if (fNameSatisfied && lNameSatisfied && phoneSatisfied && emailSatisfied && passSatisfied && cnfPassSatisfied) {
+
+                var d = new Date();
+                document.cookie = "LastSubmittedTime=" + d;
+                sessionStorage.setItem("Email", email.value);
+                sessionStorage.setItem("Phone", phone.value);
+                localStorage.setItem("FirstName", fName.value);
+                localStorage.setItem("LastName", lName.value);
+
+                window.alert("Form Submitted!")
+                location.reload();
+                return
+            }
+
+            var msg = ""
+            if (!fNameSatisfied)
+                msg += "First Name not satisfied \n"
+            if (!lNameSatisfied)
+                msg += "Last Name not satisfied \n"
+            if (!phoneSatisfied)
+                msg += "Phone not satisfied \n"
+            if (!emailSatisfied)
+                msg += "Email not satisfied \n"
+            if (!passSatisfied)
+                msg += "Password not satisfied \n"
+            if (!cnfPassSatisfied)
+                msg += "Confirm Password not satisfied \n"
+            window.alert(msg)
+        }
+
+        //Cookies, Sessions and local storage
+        document.onreadystatechange = function () {
+            var cookiesList = document.cookie.split(";")
+            for (i = 0; i < cookiesList.length; i++) {
+                if (cookiesList[i].match(/\bBgColor=/)) {
+                    var bgCookie = cookiesList[i]
+                    var bgCookiesList = bgCookie.split("=")
+                    var bgCookieValue = bgCookiesList[1];
+                    var body = document.getElementById('body')
+                    body.style.backgroundColor = bgCookieValue;
+                }
+                if (cookiesList[i].match(/\bBackImg=/)) {
+                    var bgImgCookie = cookiesList[i]
+                    var bgImgCookiesList = bgImgCookie.split("=")
+                    var bgImgCookieValue = bgImgCookiesList[1];
+                    var form = document.getElementsByClassName('form')[0]
+                    form.style.backgroundImage = bgImgCookieValue;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
