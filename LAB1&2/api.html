@@ -1,0 +1,27 @@
+var mail=document.getElementById("email").value;
+var dname="Transact";
+var subject="Your otp for E-mail verification";
+var key="5b6a20bb-d369-438e-a0c6-9a4fbdc503f6";
+
+$.ajax({
+url:"https://cloudpal.in/api/mail/requestmail.php?name="+dname+"&mail="+mail+"&subject="+subject+"&key="+key,
+type: 'GET',
+crossDomain: true,
+dataType: 'text',
+
+success: function(data){
+var mydata = JSON.parse(data);
+var responcestatus=mydata.data[0].status;
+if(responcestatus=="success")
+{
+responcehash=mydata.data[0].hash;
+otpstate=1;
+alert("OTP sent to mail");
+}
+
+}
+
+});
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
